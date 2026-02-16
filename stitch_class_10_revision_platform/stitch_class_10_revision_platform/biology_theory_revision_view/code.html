@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Biology Theory Revision - Class 10 Science</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#007f80",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2323",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #007f8040;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #007f80;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen font-display">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center gap-4">
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-icons-outlined">biotech</span>
+</div>
+<div>
+<nav class="flex text-xs text-slate-500 dark:text-slate-400 gap-2 mb-0.5">
+<span>Class 10</span>
+<span>/</span>
+<span>Science</span>
+</nav>
+<h1 class="text-lg font-semibold text-slate-900 dark:text-white leading-none">Biology Theory Revision</h1>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex flex-col items-end">
+<span class="text-xs text-slate-500 uppercase tracking-wider font-medium">Session Progress</span>
+<div class="w-32 h-1.5 bg-primary/10 rounded-full mt-1 overflow-hidden">
+<div class="bg-primary h-full w-[45%] rounded-full"></div>
+</div>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors flex items-center gap-2">
+<span class="material-icons-outlined text-sm">print</span>
+                        Print Notes
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Sidebar Navigation -->
+<aside class="col-span-3 hidden lg:block">
+<div class="sticky top-24 space-y-6">
+<!-- Tab Switcher -->
+<div class="bg-white dark:bg-slate-900/50 p-1.5 rounded-xl border border-primary/10 flex">
+<button class="flex-1 py-2 px-4 rounded-lg text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-all">
+                            MCQ Practice
+                        </button>
+<button class="flex-1 py-2 px-4 rounded-lg text-sm font-medium bg-primary text-white shadow-sm">
+                            Theory
+                        </button>
+</div>
+<!-- Section Links -->
+<nav class="space-y-1">
+<p class="px-3 py-2 text-xs font-bold text-slate-400 uppercase tracking-widest">Question Bank</p>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/5 text-primary font-medium border-l-4 border-primary" href="#section-2">
+<span class="material-icons-outlined text-[1.2rem]">looks_two</span>
+                            2-Mark Questions
+                        </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#section-3">
+<span class="material-icons-outlined text-[1.2rem]">looks_3</span>
+                            3-Mark Questions
+                        </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#section-4">
+<span class="material-icons-outlined text-[1.2rem]">looks_4</span>
+                            4-Mark Questions
+                        </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#section-5">
+<span class="material-icons-outlined text-[1.2rem]">looks_5</span>
+                            5-Mark Questions
+                        </a>
+</nav>
+<!-- Stats Card -->
+<div class="bg-primary/5 rounded-xl p-4 border border-primary/10">
+<h3 class="text-sm font-semibold text-primary mb-3">Revision Stats</h3>
+<div class="space-y-3">
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Reviewed today</span>
+<span class="font-bold text-slate-700 dark:text-slate-200">12 / 45</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Mastery Level</span>
+<span class="font-bold text-slate-700 dark:text-slate-200">Low (24%)</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="col-span-12 lg:col-span-9 space-y-10 pb-20">
+<!-- 2 Mark Section -->
+<section class="scroll-mt-24" id="section-2">
+<div class="flex items-center gap-3 mb-6 border-b border-primary/20 pb-4">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">2</div>
+<div>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Short Answer Questions</h2>
+<p class="text-sm text-slate-500">Write 20-30 words. Focus on definitions and key differences.</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Question 1 -->
+<div class="bg-white dark:bg-slate-900 border border-primary/10 rounded-xl overflow-hidden shadow-sm">
+<div class="p-5">
+<div class="flex justify-between items-start gap-4">
+<h3 class="text-base font-medium text-slate-800 dark:text-slate-100 leading-relaxed">
+                                        Q1. Define double circulation. Name the two components of it.
+                                    </h3>
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] uppercase tracking-tighter px-2 py-1 rounded font-bold">Board Exam 2022</span>
+</div>
+<div class="mt-4 flex items-center gap-3">
+<button class="text-sm font-semibold text-primary flex items-center gap-1 hover:underline">
+<span class="material-icons-outlined text-lg">visibility</span>
+                                        Show Answer
+                                    </button>
+<span class="h-4 w-[1px] bg-slate-200"></span>
+<button class="text-xs text-slate-400 hover:text-slate-600 flex items-center gap-1">
+<span class="material-icons-outlined text-sm">bookmark_border</span>
+                                        Save
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Question 2 (Expanded Example) -->
+<div class="bg-white dark:bg-slate-900 border-2 border-primary/30 rounded-xl overflow-hidden shadow-md ring-4 ring-primary/5">
+<div class="p-5 border-b border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-start gap-4">
+<h3 class="text-base font-medium text-slate-800 dark:text-slate-100 leading-relaxed">
+                                        Q2. Distinguish between aerobic and anaerobic respiration.
+                                    </h3>
+<div class="flex gap-1">
+<span class="bg-green-100 dark:bg-green-900/30 text-green-600 text-[10px] uppercase tracking-tighter px-2 py-1 rounded font-bold">Mastered</span>
+</div>
+</div>
+</div>
+<div class="p-6 bg-primary/[0.02]">
+<div class="space-y-4">
+<div class="grid grid-cols-2 gap-4 text-sm">
+<div class="space-y-2">
+<p class="font-bold text-primary">Aerobic Respiration</p>
+<ul class="list-disc pl-4 space-y-1 text-slate-600 dark:text-slate-400">
+<li>Occurs in presence of oxygen.</li>
+<li>Complete breakdown of glucose occurs.</li>
+<li>End products: CO₂, water, and energy.</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p class="font-bold text-primary">Anaerobic Respiration</p>
+<ul class="list-disc pl-4 space-y-1 text-slate-600 dark:text-slate-400">
+<li>Occurs in absence of oxygen.</li>
+<li>Incomplete breakdown of glucose.</li>
+<li>End products: Ethanol/Lactic acid and CO₂.</li>
+</ul>
+</div>
+</div>
+<div class="flex justify-between items-center pt-4 border-t border-primary/5">
+<button class="text-sm font-semibold text-slate-400 flex items-center gap-1">
+<span class="material-icons-outlined text-lg">visibility_off</span>
+                                            Hide Answer
+                                        </button>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-primary/20 text-xs font-medium text-primary hover:bg-primary/5">Mark for Review</button>
+<button class="px-3 py-1.5 rounded-lg bg-primary text-white text-xs font-medium shadow-sm">Mark as Mastered</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Question 3 -->
+<div class="bg-white dark:bg-slate-900 border border-primary/10 rounded-xl overflow-hidden shadow-sm">
+<div class="p-5">
+<div class="flex justify-between items-start gap-4">
+<h3 class="text-base font-medium text-slate-800 dark:text-slate-100 leading-relaxed">
+                                        Q3. What is the role of the acid in our stomach?
+                                    </h3>
+</div>
+<div class="mt-4 flex items-center gap-3">
+<button class="text-sm font-semibold text-primary flex items-center gap-1 hover:underline">
+<span class="material-icons-outlined text-lg">visibility</span>
+                                        Show Answer
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3 Mark Section -->
+<section class="scroll-mt-24" id="section-3">
+<div class="flex items-center gap-3 mb-6 border-b border-primary/20 pb-4">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">3</div>
+<div>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Analytical Questions</h2>
+<p class="text-sm text-slate-500">Write 40-50 words. Use bullet points and diagrams where necessary.</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Question 1 -->
+<div class="bg-white dark:bg-slate-900 border border-primary/10 rounded-xl overflow-hidden shadow-sm">
+<div class="p-5">
+<div class="flex justify-between items-start gap-4">
+<div class="space-y-2">
+<h3 class="text-base font-medium text-slate-800 dark:text-slate-100 leading-relaxed">
+                                            Q1. Draw a neat diagram of a human excretory system and label the following:
+                                        </h3>
+<p class="text-xs text-slate-500 italic">(a) Left Kidney (b) Ureter (c) Urinary Bladder (d) Urethra</p>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-3">
+<button class="text-sm font-semibold text-primary flex items-center gap-1 hover:underline">
+<span class="material-icons-outlined text-lg">image</span>
+                                        Show Diagram &amp; Labeling
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="bg-white dark:bg-slate-900 border border-primary/10 rounded-xl overflow-hidden shadow-sm">
+<div class="p-5">
+<h3 class="text-base font-medium text-slate-800 dark:text-slate-100 leading-relaxed">
+                                    Q2. Explain the process of 'transpiration' in plants. Why is it called a 'necessary evil'?
+                                </h3>
+<div class="mt-4 flex items-center gap-3">
+<button class="text-sm font-semibold text-primary flex items-center gap-1 hover:underline">
+<span class="material-icons-outlined text-lg">visibility</span>
+                                        Show Answer
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5 Mark Section -->
+<section class="scroll-mt-24" id="section-5">
+<div class="flex items-center gap-3 mb-6 border-b border-primary/20 pb-4">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">5</div>
+<div>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Long Answer / Detailed Case Studies</h2>
+<p class="text-sm text-slate-500">Write 80-100 words. Structured answers with headings required.</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="bg-white dark:bg-slate-900 border border-primary/10 rounded-xl overflow-hidden shadow-sm">
+<div class="p-5">
+<h3 class="text-base font-medium text-slate-800 dark:text-slate-100 leading-relaxed">
+                                    Q1. (a) What is menstruation? Why does it occur? <br/>
+                                    (b) Explain the role of placenta in the development of human embryo.
+                                </h3>
+<div class="mt-4 flex items-center gap-3">
+<button class="text-sm font-semibold text-primary flex items-center gap-1 hover:underline">
+<span class="material-icons-outlined text-lg">visibility</span>
+                                        Show Detailed Solution
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Image Based Question -->
+<div class="bg-white dark:bg-slate-900 border border-primary/10 rounded-xl overflow-hidden shadow-sm">
+<div class="p-5">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<h3 class="text-base font-medium text-slate-800 dark:text-slate-100 leading-relaxed mb-4">
+                                            Q2. Study the given diagram and answer the questions that follow. Identify parts A, B, and C and describe their functions in the human digestive system.
+                                        </h3>
+<div class="mt-auto flex items-center gap-3">
+<button class="text-sm font-semibold text-primary flex items-center gap-1 hover:underline">
+<span class="material-icons-outlined text-lg">visibility</span>
+                                                Show Answer
+                                            </button>
+</div>
+</div>
+<div class="w-full md:w-48 aspect-square rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center relative group">
+<img alt="Human digestive system diagram" class="w-full h-full object-cover rounded-lg opacity-40 group-hover:opacity-100 transition-opacity" data-alt="Diagram of human digestive system for biology study" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8CZlfoAHf5rGqJdOm4fFaL8jJkwInuKLbVbCc8pqjvhJ8iXSZ13PAtAkr7bBaZlh46WJdZIMMkIuOgeFMYcVaxZDE3ubI4ezZ0sq_GoJOO_XynE5BZplmQLF0kva8yqRSU0GmuHJwl8CRsudOvYJBq0hj1HZxrx-GZG-25OZnI6JKgcc0q7xhyfTIoK9aUpFIlCA6gWGia4s3GXdTguRwHCueDxrTSsCWFwYYJCK0jOoJJEVjUdcwa4RzMR-aIIhE10PurkalogQ6"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="bg-white/90 dark:bg-slate-900/90 px-2 py-1 rounded text-[10px] font-bold shadow-sm">FIGURE 4.2</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Mobile only) -->
+<div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-primary/20 px-6 py-4 flex justify-between items-center z-50">
+<button class="text-primary flex flex-col items-center">
+<span class="material-icons-outlined">menu_book</span>
+<span class="text-[10px] mt-1 font-bold">Theory</span>
+</button>
+<button class="text-slate-400 flex flex-col items-center">
+<span class="material-icons-outlined">quiz</span>
+<span class="text-[10px] mt-1 font-bold">MCQ</span>
+</button>
+<button class="text-slate-400 flex flex-col items-center">
+<span class="material-icons-outlined">leaderboard</span>
+<span class="text-[10px] mt-1 font-bold">Stats</span>
+</button>
+<button class="text-slate-400 flex flex-col items-center">
+<span class="material-icons-outlined">settings</span>
+<span class="text-[10px] mt-1 font-bold">Settings</span>
+</button>
+</div>
+</body></html>
