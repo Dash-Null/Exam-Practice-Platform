@@ -5,6 +5,24 @@ const Onboarding = () => {
     const navigate = useNavigate();
     const [name, setName] = useState('');
     const [grade, setGrade] = useState('10');
+    const [savedUser, setSavedUser] = useState(null);
+
+    React.useEffect(() => {
+        const savedName = localStorage.getItem('userName');
+        if (savedName) {
+            setSavedUser(savedName);
+        }
+    }, []);
+
+    const handleResume = () => {
+        navigate('/dashboard');
+    };
+
+    const handleLogout = () => {
+        localStorage.clear();
+        setSavedUser(null);
+        setName('');
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,57 +46,76 @@ const Onboarding = () => {
                 </div>
                 {/* Central Onboarding Card */}
                 <div className="bg-white dark:bg-background-dark/50 border border-primary/10 dark:border-primary/20 rounded-xl shadow-xl p-8 backdrop-blur-sm">
-                    <div className="mb-8">
-                        <h2 className="font-display text-xl font-semibold text-gray-800 dark:text-white">Welcome!</h2>
-                        <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Let's get your personalized revision session started.</p>
-                    </div>
-                    <form className="space-y-6" onSubmit={handleSubmit}>
-                        {/* Name Input */}
-                        <div className="space-y-2">
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300" htmlFor="full-name">
-                                What is your name?
-                            </label>
-                            <div className="relative">
-                                <span className="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary/40 text-xl">person</span>
-                                <input
-                                    className="w-full pl-11 pr-4 py-3 bg-primary/5 dark:bg-primary/10 border border-primary/20 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-lg text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 transition-all outline-none"
-                                    id="full-name"
-                                    placeholder="e.g., John Doe"
-                                    type="text"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    required
-                                />
-                            </div>
-                        </div>
-                        {/* Class Selection Dropdown */}
-                        <div className="space-y-2">
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300" htmlFor="class-select">
-                                Select your class
-                            </label>
-                            <div className="relative">
-                                <span className="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary/40 text-xl">school</span>
-                                <select
-                                    className="w-full pl-11 pr-10 py-3 bg-primary/5 dark:bg-primary/10 border border-primary/20 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-lg text-gray-900 dark:text-white appearance-none transition-all outline-none"
-                                    id="class-select"
-                                    value={grade}
-                                    onChange={(e) => setGrade(e.target.value)}
-                                >
-                                    <option value="10">Class 10</option>
-                                    <option value="9">Class 9 (Coming Soon)</option>
-                                    <option value="11">Class 11 (Coming Soon)</option>
-                                </select>
-                                <span className="material-icons-outlined absolute right-3 top-1/2 -translate-y-1/2 text-primary/40 pointer-events-none">expand_more</span>
-                            </div>
-                        </div>
-                        {/* CTA Button */}
-                        <div className="pt-4">
-                            <button className="w-full py-4 bg-accent-amber hover:bg-[#FFB300] active:scale-[0.98] text-gray-900 font-display font-bold text-lg rounded-lg shadow-lg shadow-accent-amber/20 transition-all flex items-center justify-center gap-2 group" type="submit">
-                                Start Revision
+
+                    {savedUser ? (
+                        <div className="text-center">
+                            <h2 className="font-display text-xl font-semibold text-gray-800 dark:text-white mb-2">Welcome back, {savedUser}!</h2>
+                            <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">Ready to continue your revision?</p>
+
+                            <button onClick={handleResume} className="w-full py-4 bg-primary text-white hover:bg-primary-hover active:scale-[0.98] font-display font-bold text-lg rounded-lg shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2 group mb-4">
+                                Continue Dashboard
                                 <span className="material-icons-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
                             </button>
+
+                            <button onClick={handleLogout} className="text-sm text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 underline underline-offset-4">
+                                Not {savedUser}? Start Fresh
+                            </button>
                         </div>
-                    </form>
+                    ) : (
+                        <>
+                            <div className="mb-8">
+                                <h2 className="font-display text-xl font-semibold text-gray-800 dark:text-white">Welcome!</h2>
+                                <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Let's get your personalized revision session started.</p>
+                            </div>
+                            <form className="space-y-6" onSubmit={handleSubmit}>
+                                {/* Name Input */}
+                                <div className="space-y-2">
+                                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300" htmlFor="full-name">
+                                        What is your name?
+                                    </label>
+                                    <div className="relative">
+                                        <span className="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary/40 text-xl">person</span>
+                                        <input
+                                            className="w-full pl-11 pr-4 py-3 bg-primary/5 dark:bg-primary/10 border border-primary/20 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-lg text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 transition-all outline-none"
+                                            id="full-name"
+                                            placeholder="e.g., John Doe"
+                                            type="text"
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                {/* Class Selection Dropdown */}
+                                <div className="space-y-2">
+                                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300" htmlFor="class-select">
+                                        Select your class
+                                    </label>
+                                    <div className="relative">
+                                        <span className="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary/40 text-xl">school</span>
+                                        <select
+                                            className="w-full pl-11 pr-10 py-3 bg-primary/5 dark:bg-primary/10 border border-primary/20 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-lg text-gray-900 dark:text-white appearance-none transition-all outline-none"
+                                            id="class-select"
+                                            value={grade}
+                                            onChange={(e) => setGrade(e.target.value)}
+                                        >
+                                            <option value="10">Class 10</option>
+                                            <option value="9">Class 9 (Coming Soon)</option>
+                                            <option value="11">Class 11 (Coming Soon)</option>
+                                        </select>
+                                        <span className="material-icons-outlined absolute right-3 top-1/2 -translate-y-1/2 text-primary/40 pointer-events-none">expand_more</span>
+                                    </div>
+                                </div>
+                                {/* CTA Button */}
+                                <div className="pt-4">
+                                    <button className="w-full py-4 bg-accent-amber hover:bg-[#FFB300] active:scale-[0.98] text-gray-900 font-display font-bold text-lg rounded-lg shadow-lg shadow-accent-amber/20 transition-all flex items-center justify-center gap-2 group" type="submit">
+                                        Start Revision
+                                        <span className="material-icons-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </>
+                    )}
                     <div className="mt-8 pt-6 border-t border-primary/10 flex flex-col items-center gap-3">
                         <div className="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500 uppercase tracking-widest font-semibold">
                             <span className="w-8 h-px bg-primary/20"></span>

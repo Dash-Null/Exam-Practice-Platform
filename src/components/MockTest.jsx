@@ -10,7 +10,29 @@ const MockTest = () => {
     const [statusMap, setStatusMap] = useState({}); // 'answered', 'marked', 'not_visited', 'skipped'
     const [timer, setTimer] = useState(3 * 60 * 60); // 3 hours
 
+    // Persistence Key
+    const STORAGE_KEY = 'mockTestState';
+
     useEffect(() => {
+        // Try to restore state
+        const savedState = localStorage.getItem(STORAGE_KEY);
+        if (savedState) {
+            try {
+                const parsed = JSON.parse(savedState);
+                if (parsed.questions && parsed.questions.length > 0) {
+                    setQuestions(parsed.questions);
+                    setCurrentQuestionIndex(parsed.currentQuestionIndex || 0);
+                    setSelectedAnswers(parsed.selectedAnswers || {});
+                    setStatusMap(parsed.statusMap || {});
+                    setTimer(parsed.timer || 3 * 60 * 60);
+                    return; // Skip initialization if restored
+                }
+            } catch (e) {
+                console.error("Failed to restore mock test state", e);
+            }
+        }
+
+        // Initialize new test if no restore
         const allQuestions = getAllMCQs();
         // Shuffle and pick 30 for the mock test
         const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
@@ -26,7 +48,23 @@ const MockTest = () => {
         selectedQuestions.forEach((_, i) => initialStatus[i] = 'not_visited');
         // Mark first as visited (or active)
         setStatusMap(initialStatus);
+    }, []);
 
+    // Save state on changes
+    useEffect(() => {
+        if (questions.length > 0) {
+            const stateToSave = {
+                questions,
+                currentQuestionIndex,
+                selectedAnswers,
+                statusMap,
+                timer
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
+        }
+    }, [questions, currentQuestionIndex, selectedAnswers, statusMap, timer]);
+
+    useEffect(() => {
         const interval = setInterval(() => {
             setTimer(prev => prev > 0 ? prev - 1 : 0);
         }, 1000);
@@ -34,6 +72,9 @@ const MockTest = () => {
     }, []);
 
     const handleSubmitTest = () => {
+        // Clear saved state on submit
+        localStorage.removeItem(STORAGE_KEY);
+
         const answeredCount = Object.keys(selectedAnswers).length;
         // Simple scoring: +1 for correct
         let score = 0;
@@ -125,7 +166,12 @@ const MockTest = () => {
                     </button>
 
                     <button
-                        onClick={() => navigate('/dashboard')}
+                        onClick={() => {
+                            if (window.confirm("Are you sure you want to end the test? Progress will be lost.")) {
+                                localStorage.removeItem(STORAGE_KEY);
+                                navigate('/dashboard');
+                            }
+                        }}
                         className="bg-red-500 text-white hover:bg-red-600 px-4 py-2 rounded-lg font-semibold transition-colors flex items-center gap-2 shadow-md text-sm"
                     >
                         <span>End Test</span>
